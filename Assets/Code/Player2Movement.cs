@@ -25,6 +25,9 @@ public class Player2Movement : MonoBehaviour
         PlayerSprite = GetComponent<SpriteRenderer>();
         Kick = Kick.GetComponent<BoxCollider2D>();
         Swing = Swing.GetComponent<BoxCollider2D>();
+
+        Kick.enabled = false;
+        Swing.enabled = false;
     }
 
     // Update is called once per frame
@@ -60,8 +63,8 @@ public class Player2Movement : MonoBehaviour
 
 
         // Movement for Character
-        float speed = Input.GetKey(KeyCode.LeftShift) ? sprintSpeed : walkSpeed;
-        Vector2 movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized * speed;
+        float speed = Input.GetKey(KeyCode.Period) ? sprintSpeed : walkSpeed;
+        Vector2 movement = new Vector2(Input.GetAxisRaw("Horizontal2"), Input.GetAxisRaw("Vertical2")).normalized * speed;
         rb2.velocity = movement;
 
         // Listen for a punt
@@ -73,26 +76,26 @@ public class Player2Movement : MonoBehaviour
             rb2.AddForce(new Vector2(fX, fY));
         }
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.U))
         {
             Kick.enabled = true;
             CoolDownTimer = 0.5f;
 
 
         }
-        else if (Input.GetKeyUp(KeyCode.Q) || CoolDownTimer <= 0)
+        else if (Input.GetKeyUp(KeyCode.U) || CoolDownTimer <= 0)
         {
             Kick.enabled = false;
         }
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.O))
         {
             Swing.enabled = true;
             CoolDownTimer = 0.5f;
 
 
         }
-        else if (Input.GetKeyUp(KeyCode.E) || CoolDownTimer <= 0f)
+        else if (Input.GetKeyUp(KeyCode.O) || CoolDownTimer <= 0f)
         {
             Swing.enabled = false;
         }
