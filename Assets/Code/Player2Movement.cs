@@ -63,7 +63,7 @@ public class Player2Movement : MonoBehaviour
 
 
         // Movement for Character
-        float speed = Input.GetKey(KeyCode.Period) ? sprintSpeed : walkSpeed;
+        float speed = Input.GetKey(KeyCode.N) ? sprintSpeed : walkSpeed;
         Vector2 movement = new Vector2(Input.GetAxisRaw("Horizontal2"), Input.GetAxisRaw("Vertical2")).normalized * speed;
         rb2.velocity = movement;
 

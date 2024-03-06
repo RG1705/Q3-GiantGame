@@ -86,14 +86,18 @@ public class BallCode : MonoBehaviour
             Swing = toss.gameObject.GetComponent<BoxCollider2D>();
             if (Swing.offset.x == 0.5f)
             {
+                Vector2 velocity = rb2.velocity;
+                rb2.velocity = Vector2.zero;
 
-                rb2.AddForce(new Vector2(rb2.velocity.x * 2, 0.0f));
+                rb2.AddForce(new Vector2(velocity.x * 2, 0.0f));
 
             }
 
             if (Swing.offset.x == -0.5f)
             {
-                rb2.AddForce(new Vector2(rb2.velocity.x * 2, 0.0f));
+                Vector2 velocity = rb2.velocity;
+                rb2.velocity = Vector2.zero;
+                rb2.AddForce(new Vector2(velocity.x * 2, 0.0f));
 
 
             }
