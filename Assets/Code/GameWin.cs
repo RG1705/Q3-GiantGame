@@ -21,23 +21,19 @@ public class GameWin : MonoBehaviour
         if (Castle2 == null)
         {
             Debug.Log("Player 1 wins!");
-
+            Ball.GetComponent<BallChecker>().enabled = false;
+            Destroy(GameObject.Find("Ball(Clone)"));
 
         }
         if (Castle1 == null)
         {
             Debug.Log("Player 2 wins!");
-
-
-        }
-
-        if(Castle1 == null || Castle2 == null)
-        {
             Ball.GetComponent<BallChecker>().enabled = false;
-
-
+            Destroy(GameObject.Find("Ball(Clone)"));
 
         }
+
+
 
         if (Input.GetKey(KeyCode.R) && Castle1 == null)
         {
